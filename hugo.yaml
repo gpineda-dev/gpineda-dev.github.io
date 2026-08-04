@@ -15,7 +15,7 @@ markup:
 
 # Paramètres généraux du thème PaperMod
 params:
-  env: "developement"
+  env: "production"
   disableThemeToggle: false
   ShowShareButtons: false
   ShowReadingTime: true
