@@ -1,0 +1,41 @@
+/* Surcharge de la palette de couleurs PaperMod */
+:root {
+    --theme: rgb(248, 250, 252);     /* Fond clair : Slate 50 */
+    --entry: rgb(255, 255, 255);     /* Cartes d'articles : Blanc pur */
+    --primary: rgb(15, 23, 42);      /* Texte : Slate 900 */
+    --secondary: rgb(71, 85, 105);   /* Texte secondaire : Slate 600 */
+    --tertiary: rgb(148, 163, 184);  /* Bordures/Meta : Slate 400 */
+    --content: rgb(51, 65, 85);      /* Contenu texte : Slate 700 */
+    --code-bg: rgb(241, 245, 249);   /* Fond de code : Slate 100 */
+    --border: rgb(226, 232, 240);    /* Lignes de séparation : Slate 200 */
+}
+
+.dark {
+    --theme: rgb(15, 23, 42);        /* Fond sombre : Slate 900 */
+    --entry: rgb(30, 41, 59);        /* Cartes d'articles : Slate 800 */
+    --primary: rgb(248, 250, 252);   /* Texte : Slate 50 */
+    --secondary: rgb(148, 163, 184); /* Texte secondaire : Slate 400 */
+    --tertiary: rgb(71, 85, 105);    /* Bordures/Meta : Slate 600 */
+    --content: rgb(226, 232, 240);   /* Contenu texte : Slate 200 */
+    --code-bg: rgb(30, 41, 59);      /* Fond de code : Slate 800 */
+    --border: rgb(51, 65, 85);       /* Lignes de séparation : Slate 700 */
+}
+
+/* Polices de caractères système Premium */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+code, pre {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 0.9em;
+}
+
+/* Amélioration visuelle des blocs de code */
+pre {
+    border-radius: 8px !important;
+    border: 1px solid var(--border) !important;
+    padding: 14px !important;
+}

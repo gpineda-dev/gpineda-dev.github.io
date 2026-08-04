@@ -1,0 +1,74 @@
+title: "@gpineda-dev"
+baseURL: "https://g.pineda.me/"
+theme: "hugo-PaperMod"
+paginate: 10
+defaultContentLanguage: "en"
+defaultContentLanguageInSubdir: true
+
+# Coloration syntaxique Chroma
+markup:
+  highlight:
+    codeFences: true
+    guessSyntax: true
+    lineNos: true
+    style: "monokai"
+
+# Paramètres généraux du thème PaperMod
+params:
+  env: "developement"
+  disableThemeToggle: false
+  ShowShareButtons: false
+  ShowReadingTime: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+
+
+  socialIcons:
+    - name: "GitHub"
+      url: "https://github.com/gpineda-dev"
+    - name: "LinkedIn"
+      url: "https://www.linkedin.com/in/guillaume-pineda/"
+
+languages:
+  en:
+    languageCode: "en-us"
+    languageName: "English"
+    weight: 1
+    params:
+      description: "Bringing Cloud-Grade Quality (CI/CD, Audit, Observability) to Industrial Legacy"
+      homeInfoParams:
+        Title: "Guillaume Pineda (@gpineda-dev)"
+        Content: "**SRE & Platform Engineer • Founder of Ouvrage Systems**\n\n*“A bridge between two worlds: inheriting the wisdom of senior engineers to bring Cloud-grade quality—deterministic build pipelines, CI/CD, auditability, and observability—to industrial legacy.”*\n\nSystems engineer based in Konstanz (Siemens cRSP), designing deterministic, lightweight tooling to modernize legacy builds, extract structured metrics (OMD/Nagios, custom ELK), and guarantee critical infrastructure resilience. Welcome to my engineering journal."
+    menu:
+      main:
+        - name: "Posts"
+          url: "/posts/"
+          weight: 10
+        - name: "Ouvrage"
+          url: "https://github.com/ouvrage-systems"
+          weight: 20
+        - name: "About"
+          url: "/about/"
+          weight: 30
+
+  fr:
+    languageCode: "fr-fr"
+    languageName: "Français"
+    weight: 2
+    params:
+      description: "Apporter la qualité Cloud (CI/CD, Build, Audit, Observabilité) au legacy industriel"
+      homeInfoParams:
+        Title: "Guillaume Pineda"
+        Content: "**SRE & Platform Engineer • Fondateur d'Ouvrage Systems**\n\n*« Un pont entre deux mondes : hériter du savoir-faire des anciens pour apporter la qualité du Cloud (rigueur du build, CI/CD, auditabilité, observabilité) au legacy industriel. »*\n\nIngénieur système à Konstanz (cRSP Siemens), je conçois des outils déterministes et sobres pour fiabiliser les projets legacy, extraire des métriques structurées depuis les journaux bruts (OMD/Nagios, pipelines ELK sur-mesure) et garantir la résilience des infrastructures critiques. Bienvenue dans mon journal d'ingénierie."
+    menu:
+      main:
+        - name: "Articles"
+          url: "/fr/posts/"
+          weight: 10
+        - name: "Ouvrage"
+          url: "https://github.com/ouvrage-systems"
+          weight: 20
+        - name: "À propos"
+          url: "/fr/about/"
+          weight: 30
