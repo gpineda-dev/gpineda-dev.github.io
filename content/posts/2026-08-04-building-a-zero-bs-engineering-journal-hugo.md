@@ -1,7 +1,8 @@
 ---
-title: "Act I: Building a Zero-BS Engineering Journal with Hugo and GitHub Pages"
+title: "Building a Zero-BS Engineering Journal with Hugo and GitHub Pages"
 date: 2026-08-03T19:00:00+02:00
 draft: false
+categories: ["platform_tools"]
 summary: "Why and how I built a minimalist, lightning-fast static journal using GoHugo, PaperMod, and GitHub Actions, setting up the baseline before moving to self-hosted Ouvrage tools."
 tags: ["hugo", "devops", "platform-engineering", "gitops"]
 showToc: true
@@ -18,7 +19,7 @@ As a Platform and Systems Engineer working with industrial legacy and low-level 
 * **Native bilingual support**: Seamlessly handling dual-language posts (`en` / `fr`) without fragile third-party plugins.
 * **Content as Code**: Articles are fully versioned in Git and deployed deterministically via CI/CD pipelines.
 
-This post documents **Act I**: establishing the baseline stack using **GoHugo**, the **PaperMod** theme, and **GitHub Pages**. It serves as the foundation before testing future self-hosted Ouvrage infrastructure (such as `ouvrage-lutrin`).
+This post documents the baseline stack using **GoHugo**, the **PaperMod** theme, and **GitHub Pages**. It serves as the foundation before testing future self-hosted Ouvrage infrastructure (such as `ouvrage-lutrin`).
 
 ---
 
@@ -325,6 +326,6 @@ Until then, GitHub Pages provides a rock-solid, zero-maintenance foundation for 
 
 ---
 
-> 🛠️ *This post was co-designed with Gemini (Antigravity) using our [Augmented Pair-Authoring Workflow](/posts/2026-08-04-augmented-pair-authoring-workflow) (see also our [Exoskeleton Manifesto](/posts/2026-08-04-exoskeleton-manifesto)).*
+> 🛠️ *This post was co-designed with Gemini (Antigravity) using our [Augmented Pair-Authoring Workflow](/posts/2026-08-04-augmented-pair-authoring-workflow) (see also our [Builder Manifesto](/posts/2026-09-19-ai-exoskelton-for-builders-not-oracle/)).*
 
 

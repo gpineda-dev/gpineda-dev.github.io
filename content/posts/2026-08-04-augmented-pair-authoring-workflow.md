@@ -2,6 +2,7 @@
 title: "From Raw Notes to Published Post: My Augmented Pair-Authoring Workflow"
 date: 2026-08-04T03:15:00+02:00
 draft: false
+categories: ["engineering_vision"]
 summary: "A practical breakdown of how I collaborate with LLMs to translate raw engineering notes into structured, bilingual articles without losing human voice or technical accuracy."
 tags: ["ai", "meta", "writing", "workflow"]
 showToc: true
@@ -9,7 +10,7 @@ showToc: true
 
 ## 1. Why Separate Code Generation from Technical Writing?
 
-In our [Exoskeleton Manifesto](/posts/2026-08-04-exoskeleton-manifesto), we outlined the strict separation between human architecture and machine implementation. However, applying AI to **technical writing** presents a unique challenge compared to code generation:
+In our [Builder Manifesto](/posts/2026-09-19-ai-exoskelton-for-builders-not-oracle/), we outlined the strict separation between human architecture and machine implementation. However, applying AI to **technical writing** presents a unique challenge compared to code generation:
 
 * **In Code Generation**: The output is validated by a compiler, unit tests, and runtime metrics. Correctness is binary.
 * **In Prose Generation**: The output must preserve human authenticity, personal history, and nuanced engineering decisions. Naive LLM prose leads to generic, buzzword-heavy marketing fluff.
@@ -56,4 +57,4 @@ The final architectural paragraph, drafted and verified by the engineer:
 
 AI pair-authoring is not about outsourcing thought—it is about **eliminating the friction between ideation and publication**. It allows me to maintain a dense, bilingual engineering journal while spending 95% of my mental energy where it belongs: on low-level systems engineering.
 
-For the overarching principles governing our codebases and software runtimes, read the [Exoskeleton Manifesto](/posts/2026-08-04-exoskeleton-manifesto).
+For the overarching principles governing our codebases and software runtimes, read the [Builder Manifesto](/posts/2026-09-19-ai-exoskelton-for-builders-not-oracle/).

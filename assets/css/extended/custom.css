@@ -39,3 +39,106 @@ pre {
     border: 1px solid var(--border) !important;
     padding: 14px !important;
 }
+
+/* Callouts / GitHub-style Alerts */
+.callout {
+    margin: 1.5rem 0;
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--tertiary);
+    background-color: var(--code-bg);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.callout-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.callout-title {
+    font-weight: 700;
+}
+
+.callout-content {
+    font-size: 0.95rem;
+    line-height: 1.65;
+}
+
+.callout-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Variantes de Callouts */
+.callout-tip {
+    border-left-color: #10b981;
+    background-color: rgba(16, 185, 129, 0.08);
+}
+.callout-tip .callout-title {
+    color: #059669;
+}
+.dark .callout-tip {
+    background-color: rgba(16, 185, 129, 0.12);
+}
+.dark .callout-tip .callout-title {
+    color: #34d399;
+}
+
+.callout-note {
+    border-left-color: #3b82f6;
+    background-color: rgba(59, 130, 246, 0.08);
+}
+.callout-note .callout-title {
+    color: #2563eb;
+}
+.dark .callout-note {
+    background-color: rgba(59, 130, 246, 0.12);
+}
+.dark .callout-note .callout-title {
+    color: #60a5fa;
+}
+
+.callout-important {
+    border-left-color: #8b5cf6;
+    background-color: rgba(139, 92, 246, 0.08);
+}
+.callout-important .callout-title {
+    color: #7c3aed;
+}
+.dark .callout-important {
+    background-color: rgba(139, 92, 246, 0.12);
+}
+.dark .callout-important .callout-title {
+    color: #a78bfa;
+}
+
+.callout-warning {
+    border-left-color: #f59e0b;
+    background-color: rgba(245, 158, 11, 0.08);
+}
+.callout-warning .callout-title {
+    color: #d97706;
+}
+.dark .callout-warning {
+    background-color: rgba(245, 158, 11, 0.12);
+}
+.dark .callout-warning .callout-title {
+    color: #fbbf24;
+}
+
+.callout-caution {
+    border-left-color: #ef4444;
+    background-color: rgba(239, 68, 68, 0.08);
+}
+.callout-caution .callout-title {
+    color: #dc2626;
+}
+.dark .callout-caution {
+    background-color: rgba(239, 68, 68, 0.12);
+}
+.dark .callout-caution .callout-title {
+    color: #f87171;
+}

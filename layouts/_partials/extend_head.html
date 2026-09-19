@@ -1,3 +1,6 @@
 {{ if .Param "math" }}  
     {{ partialCached "math.html" . }}
 {{ end }}
+{{ if or (.Param "mermaid") (.Store.Get "hasMermaid") (.Page.Store.Get "hasMermaid") }}
+    {{ partialCached "mermaid.html" . }}
+{{ end }}

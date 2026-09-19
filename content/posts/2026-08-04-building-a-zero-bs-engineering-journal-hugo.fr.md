@@ -1,7 +1,8 @@
 ---
-title: "Acte I : Construire un journal d'ingénierie sans blabla avec Hugo et GitHub Pages"
+title: "Construire un journal d'ingénierie sans blabla avec Hugo et GitHub Pages"
 date: 2026-08-03T19:00:00+02:00
 draft: false
+categories: ["platform_tools"]
 summary: "Pourquoi et comment j'ai mis en place ce site statique minimaliste et ultra-rapide avec GoHugo, PaperMod et GitHub Actions, posant les jalons avant de basculer sur nos propres outils d'infra Ouvrage."
 tags: ["hugo", "devops", "platform-engineering", "gitops"]
 showToc: true
@@ -17,7 +18,7 @@ Les blogs sous Next.js ou WordPress pèsent fréquemment plusieurs mégaoctets p
 * **Multilingue natif** : Basculer entre français (`.fr.md`) et anglais (`.md`) sans ajouter une suite de plugins fragiles.
 * **Tout sous Git** : Le contenu est traité comme du code, versionné et déployé de manière déterministe par CI/CD.
 
-Cet article pose l'**Acte I** : mon setup de départ avec **GoHugo**, le thème **PaperMod** et **GitHub Pages**. C'est ma ligne de base avant d'aller tester mes propres briques d'infra auto-hébergées Ouvrage (comme `ouvrage-lutrin`).
+Cet article pose les bases : mon setup de départ avec **GoHugo**, le thème **PaperMod** et **GitHub Pages**. C'est ma ligne de base avant d'aller tester mes propres briques d'infra auto-hébergées Ouvrage (comme `ouvrage-lutrin`).
 
 ---
 
@@ -326,7 +327,7 @@ D'ici là, GitHub Pages fait le job sans rechigner.
 
 ---
 
-> 🛠️ *Cet article a été co-conçu avec Gemini (Antigravity) selon notre [Workflow de Rédaction Augmentée](/fr/posts/2026-08-04-augmented-pair-authoring-workflow) (voir aussi notre [Manifeste de l'Exosquelette](/fr/posts/2026-08-04-exoskeleton-manifesto)).*
+> 🛠️ *Cet article a été co-conçu avec Gemini (Antigravity) selon notre [Workflow de Rédaction Augmentée](/fr/posts/2026-08-04-augmented-pair-authoring-workflow) (voir aussi notre [Manifeste du Bâtisseur](/fr/posts/2026-09-19-ai-exoskelton-for-builders-not-oracle/)).*
 
 
 

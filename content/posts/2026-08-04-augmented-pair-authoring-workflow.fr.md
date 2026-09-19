@@ -2,6 +2,7 @@
 title: "De la note brute à l'article : Mon workflow de rédaction augmentée en pair-programming"
 date: 2026-08-04T03:15:00+02:00
 draft: false
+categories: ["engineering_vision"]
 summary: "Une analyse pratique de ma méthode de collaboration avec les LLMs pour traduire mes notes d'ingénierie brutes en articles bilingues structurés sans perdre l'authenticité de ma voix."
 tags: ["ai", "meta", "writing", "workflow"]
 showToc: true
@@ -9,7 +10,7 @@ showToc: true
 
 ## 1. Pourquoi séparer la génération de code de la rédaction ?
 
-Dans notre [Manifeste de l'Exosquelette](/fr/posts/2026-08-04-exoskeleton-manifesto), nous avons établi la séparation stricte entre l'architecture humaine et l'implémentation machine. Cependant, appliquer l'IA à la **rédaction technique** présente un défi différent de la génération de code :
+Dans notre [Manifeste du Bâtisseur](/fr/posts/2026-09-19-ai-exoskelton-for-builders-not-oracle/), nous avons établi la séparation stricte entre l'architecture humaine et l'implémentation machine. Cependant, appliquer l'IA à la **rédaction technique** présente un défi différent de la génération de code :
 
 * **En Génération de Code** : Le résultat est validé par un compilateur, des tests unitaires et des métriques d'exécution. La justesse est binaire.
 * **En Rédaction de Prose** : Le résultat doit préserver l'authenticité humaine, l'historique personnel et les nuances d'ingénierie. Une prose IA naïve produit du texte générique, creux et sur-marketé.
@@ -56,4 +57,4 @@ Le paragraphe d'architecture final, rédigé et relu par l'ingénieur :
 
 La rédaction augmentée avec une IA ne consiste pas à sous-traiter sa pensée — elle vise à **éliminer la friction entre l'idée et la publication**. Elle me permet de maintenir un journal d'ingénierie bilingue et dense tout en consacrant 95% de mon énergie mentale là où elle doit être : dans l'ingénierie système bas-niveau.
 
-Pour comprendre les principes généraux qui régissent nos codebases et nos runtimes logicielle, lisez le [Manifeste de l'Exosquelette](/fr/posts/2026-08-04-exoskeleton-manifesto).
+Pour comprendre les principes généraux qui régissent nos codebases et nos runtimes logicielle, lisez le [Manifeste du Bâtisseur](/fr/posts/2026-09-19-ai-exoskelton-for-builders-not-oracle/).

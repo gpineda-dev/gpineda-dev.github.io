@@ -5,6 +5,11 @@ paginate: 10
 defaultContentLanguage: "en"
 defaultContentLanguageInSubdir: true
 
+taxonomies:
+  category: categories
+  tag: tags
+  series: series
+
 # Coloration syntaxique Chroma
 markup:
   highlight:

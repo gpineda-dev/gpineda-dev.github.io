@@ -2,6 +2,7 @@
 title: "The WASI V2 Polyglot Blueprint : Exécuter du Go pur en Python et JS sans tout réécrire"
 date: 2026-08-03T20:00:00+02:00
 draft: true
+categories: ["systems_architecture"]
 summary: "Comment nous compilons les briques algorithmiques pur Go de la galaxie Ouvrage (ouvrage-kern-go) en composants WASI Preview 2 pour les consommer de manière propre et typée en Python et Node.js."
 tags: ["webassembly", "wasi", "golang", "python", "architecture"]
 showToc: true
@@ -195,6 +196,6 @@ Le laboratoire [**`labs-wasi-polyglot-bindings-reference`**](https://ouvrage-sys
 
 ---
 
-> 🛠️ *Cet article a été co-conçu avec Gemini (Antigravity) selon notre [Workflow de Rédaction Augmentée](/fr/posts/2026-08-04-augmented-pair-authoring-workflow) (voir aussi notre [Manifeste de l'Exosquelette](/fr/posts/2026-08-04-exoskeleton-manifesto)).*
+> 🛠️ *Cet article a été co-conçu avec Gemini (Antigravity) selon notre [Workflow de Rédaction Augmentée](/fr/posts/2026-08-04-augmented-pair-authoring-workflow) (voir aussi notre [Manifeste du Bâtisseur](/fr/posts/2026-09-19-ai-exoskelton-for-builders-not-oracle/)).*
 
 

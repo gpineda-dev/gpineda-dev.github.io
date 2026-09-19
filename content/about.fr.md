@@ -22,8 +22,11 @@ Je refuse le réflexe moderne de vouloir tout réécrire dès qu'un système est
 ### 2. Le Retour aux Principes Premiers
 Du protocole réseau au parseur de Pratt, je privilégie la maîtrise des fondamentaux théoriques (grammaires formelles, théorie des graphes) pour ne jamais être bloqué par la boîte noire des outils modernes. Si un outil propriétaire fonctionne, je l'utilise (Windows 11, WSL2, SSH). Je n'automatise jamais une tâche sans l'avoir d'abord exécutée manuellement, auditée et optimisée à la main.
 
-### 3. L'IA comme Exosquelette
-L'intelligence artificielle doit être un outil d'augmentation pour l'artisan. Elle m'aide à relire le code, générer le boilerplate et accélérer l'implémentation, mais le contrôle de l'AST mental reste humain. L'IA ne doit jamais devenir un oracle opaque qui produit des boîtes noires incomprises.
+### 3. L'IA comme Exosquelette (Pas un Oracle)
+L'intelligence artificielle doit être un exosquelette mécanique pour le **bâtisseur**. Elle permet d'accélérer l'exploration, de générer du code d'assemblage et d'éprouver des hypothèses, mais la conception de l'architecture et le contrôle du modèle mental restent 100 % humains. L'IA ne doit jamais être traitée comme un oracle probabiliste auquel on déléguerait des boîtes noires incomprises.
+
+Pour une plongée complète dans cette démarche et mes retours d'expérience en production :  
+👉 **[Du Tableau Blanc aux Principes Premiers : Bâtir Frugal et Déterministe à l'Ère de l'IA](/fr/posts/2026-09-19-ai-exoskelton-for-builders-not-oracle/)**
 
 ---
 
@@ -31,6 +34,7 @@ L'intelligence artificielle doit être un outil d'augmentation pour l'artisan. E
 
 En avril 2026, à 29 ans, j'ai fondé **Ouvrage Systems** pour regrouper sous une même bannière des outils bas-niveau et déclaratifs (*Config as Data*) dédiés aux ingénieurs plateforme et SRE :
 
+* **`fd-harness`** : Harnais de contrôle et d'observabilité I/O bas-niveau, interceptant et multiplexant les descripteurs de fichiers (`pipe(7)`, `dup2(2)`, `SCM_RIGHTS`) pour le streaming et la supervision de processus.
 * **`ouvrage-calque-go`** : Compilateur de templates déclaratifs sous forme d'overlays sémantiques (*calques*), sans la complexité des variables mutables de Helm ou Jinja.
 * **`ouvrage-stream-go`** : Implémentation du protocole *Ostream*, traitant une base de code d'infrastructure comme un bus de données immuable.
 * **`py-hid-declarative`** : Suite de codecs et compilateurs type-safe pour les protocoles USB HID (né du besoin de mapper mon joystick Thrustmaster T.16000M pour la console).

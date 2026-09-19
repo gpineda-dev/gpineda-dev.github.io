@@ -1,0 +1,80 @@
+{{- $alertType := "" -}}
+{{- $customTitle := "" -}}
+
+{{- if and .AlertType (ne .AlertType "regular") -}}
+  {{- $alertType = lower .AlertType -}}
+{{- else if and (eq .Type "alert") .Attributes.type -}}
+  {{- $alertType = lower .Attributes.type -}}
+{{- else if and .Type (ne .Type "regular") (ne .Type "alert") -}}
+  {{- $alertType = lower .Type -}}
+{{- end -}}
+
+{{- if and (eq .Type "alert") (not $alertType) -}}
+  {{- if findRE `(?i)tip` .Text }}{{ $alertType = "tip" }}
+  {{- else if findRE `(?i)note` .Text }}{{ $alertType = "note" }}
+  {{- else if findRE `(?i)important` .Text }}{{ $alertType = "important" }}
+  {{- else if findRE `(?i)warning` .Text }}{{ $alertType = "warning" }}
+  {{- else if findRE `(?i)caution` .Text }}{{ $alertType = "caution" }}
+  {{- end -}}
+{{- end -}}
+
+{{- $raw := strings.TrimSpace (.Text | plainify) -}}
+{{- if not $alertType -}}
+  {{- if findRE `^\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]` $raw -}}
+    {{- $matches := findRESubmatch `^\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]` $raw 1 -}}
+    {{- if $matches -}}
+      {{- $alertType = lower (index (index $matches 0) 1) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if $alertType -}}
+  {{- $defaultTitle := "Note" -}}
+  {{- if eq $alertType "tip" }}{{ $defaultTitle = "Conseil" }}
+  {{- else if eq $alertType "note" }}{{ $defaultTitle = "Note" }}
+  {{- else if eq $alertType "important" }}{{ $defaultTitle = "Important" }}
+  {{- else if eq $alertType "warning" }}{{ $defaultTitle = "Attention" }}
+  {{- else if eq $alertType "caution" }}{{ $defaultTitle = "Avertissement" }}
+  {{- else }}{{ $defaultTitle = $alertType | title }}
+  {{- end -}}
+
+  {{- /* Nettoyer le tag d'alerte textuel s'il reste */ -}}
+  {{- $cleanContent := replaceRE `(?s)^<p>\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\][^\n<]*(?:<br\s*/?>|\n)?\s*` "<p>" .Text -}}
+
+  {{- /* Si le contenu commence par <strong>Titre</strong>, l'extraire comme titre de header */ -}}
+  {{- if findRE `(?s)^<p><strong>(.*?)</strong>` $cleanContent -}}
+    {{- $strongMatch := findRESubmatch `(?s)^<p><strong>(.*?)</strong>(?:<br\s*/?>|\n)?\s*(.*)` $cleanContent 1 -}}
+    {{- if $strongMatch -}}
+      {{- $customTitle = index (index $strongMatch 0) 1 -}}
+      {{- $remainder := index (index $strongMatch 0) 2 -}}
+      {{- if $remainder -}}
+        {{- $cleanContent = printf "<p>%s" $remainder -}}
+      {{- else -}}
+        {{- $cleanContent = "" -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- $title := cond (ne $customTitle "") $customTitle $defaultTitle -}}
+
+  <div class="callout callout-{{ $alertType }}">
+    <div class="callout-header">
+      {{- if eq $alertType "tip" }}💡
+      {{- else if eq $alertType "note" }}ℹ️
+      {{- else if eq $alertType "important" }}📌
+      {{- else if eq $alertType "warning" }}⚠️
+      {{- else if eq $alertType "caution" }}🛑
+      {{- end }}
+      <span class="callout-title">{{ $title | safeHTML }}</span>
+    </div>
+    {{- if $cleanContent }}
+    <div class="callout-content">
+      {{ $cleanContent | safeHTML }}
+    </div>
+    {{- end }}
+  </div>
+{{- else -}}
+  <blockquote>
+    {{ .Text }}
+  </blockquote>
+{{- end -}}

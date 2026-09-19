@@ -22,8 +22,11 @@ I reject the modern reflex of wanting to rewrite everything as soon as a system 
 ### 2. Return to First Principles
 From network protocols to Pratt parsers, I prioritize mastering theoretical fundamentals (formal grammars, graph theory) so I am never blocked by the black box of modern tools. If a proprietary tool works, I use it (Windows 11, WSL2, remote SSH). I never automate a task without first executing, auditing, and optimizing it by hand.
 
-### 3. AI as an Exoskeleton
-Artificial intelligence must be an augmenting tool for the craftsman. It helps me review code, generate boilerplate, and accelerate implementation, but control of the mental AST remains human. AI must never become an opaque oracle producing unmanaged black boxes.
+### 3. AI as an Exoskeleton (Not an Oracle)
+Artificial intelligence must be a mechanical exoskeleton for the **builder**. It accelerates exploration, boilerplate generation, and hypothesis testing, but architectural design and mental model control remain 100% human. AI should never be treated as a probabilistic oracle to which unmastered black boxes are outsourced.
+
+For an in-depth deep dive into this approach and production engineering takeaways:  
+👉 **[From the Whiteboard to First Principles: Building Frugal and Deterministic Systems in the Age of AI](/posts/2026-09-19-ai-exoskelton-for-builders-not-oracle/)**
 
 ---
 
@@ -31,6 +34,7 @@ Artificial intelligence must be an augmenting tool for the craftsman. It helps m
 
 In April 2026, at age 29, I founded **Ouvrage Systems** to group low-level, declarative tools (*Config as Data*) under a single banner for platform engineers and SREs:
 
+* **`fd-harness`**: Low-level I/O control and observability harness, intercepting and multiplexing file descriptors (`pipe(7)`, `dup2(2)`, `SCM_RIGHTS`) for process supervision and streaming.
 * **`ouvrage-calque-go`**: Declarative templating compiler using semantic overlays (*calques*), without the complexity of mutable variables found in Helm or Jinja.
 * **`ouvrage-stream-go`**: Implementation of the *Ostream* protocol, treating an infrastructure codebase as an immutable stream data bus.
 * **`py-hid-declarative`**: Type-safe suite of codecs and compilers for USB HID protocols (born from the practical need to map my Thrustmaster T.16000M joystick for console gaming).
