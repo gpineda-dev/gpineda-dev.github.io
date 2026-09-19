@@ -10,13 +10,16 @@ taxonomies:
   tag: tags
   series: series
 
-# Coloration syntaxique Chroma
+# Coloration syntaxique Chroma & Rendu Markdown
 markup:
+  goldmark:
+    renderer:
+      unsafe: true
   highlight:
     codeFences: true
     guessSyntax: true
-    lineNos: true
-    style: "monokai"
+    lineNos: false
+    noClasses: false
 
 # Paramètres généraux du thème PaperMod
 params:

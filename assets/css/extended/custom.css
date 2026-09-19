@@ -29,15 +29,8 @@ body {
 }
 
 code, pre {
-    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-family: "JetBrains Mono", "SF Pro Mono", SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
     font-size: 0.9em;
-}
-
-/* Amélioration visuelle des blocs de code */
-pre {
-    border-radius: 8px !important;
-    border: 1px solid var(--border) !important;
-    padding: 14px !important;
 }
 
 /* Callouts / GitHub-style Alerts */
