@@ -584,7 +584,7 @@ echo "==> [AUTH] Reusing first session secret : sec_8819ab21"
 echo "==> [DONE] Provisioning completed."
 ```
 
-#### 1. Direct Execution (Unsupervised):
+#### A. Direct Execution (Unsupervised)
 Secrets leak in plain text to the console and CI/CD logs:
 ```text
 ==> [INIT] Starting cluster provisioning...
@@ -597,7 +597,7 @@ Secrets leak in plain text to the console and CI/CD logs:
 ==> [DONE] Provisioning completed.
 ```
 
-#### 2. Supervised Execution (`fd-harness run`):
+#### B. Supervised Execution (`fd-harness run`)
 ```bash
 $ fd-harness run ./provision-worker.sh
 ==> [INIT] Starting cluster provisioning...
@@ -665,7 +665,7 @@ flowchart TD
     Harness -->|Sanitized and PCI-DSS Compliant Stream| Client
 ```
 
-#### 1. Security Policy Declaration (`dlp-rules.toml`)
+#### A. Security Policy Declaration (`dlp-rules.toml`)
 We formalize banking compliance and GDPR rules in a declarative TOML configuration:
 
 ```toml
@@ -711,7 +711,7 @@ action = "mask"
 replacement = "[REDACTED_CVV]"
 ```
 
-#### 2. The Supervised `systemd` Service Unit
+#### B. The Supervised `systemd` Service Unit
 In `~/.config/systemd/user/bash-http-dlp@.service`, we wrap the worker execution:
 
 ```ini
@@ -730,7 +730,7 @@ StandardOutput=socket
 StandardError=journal
 ```
 
-#### 3. The Network Test: Live Comparison
+#### C. The Network Test: Live Comparison
 
 Querying the sensitive `/secure` endpoint on the raw port (:8080) versus the `fd-harness` supervised port (:8081):
 

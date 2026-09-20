@@ -575,7 +575,7 @@ echo "==> [AUTH] Reusing first session secret : sec_8819ab21"
 echo "==> [DONE] Provisioning completed."
 ```
 
-#### 1. Exécution Directe (Sans superviseur) :
+#### A. Exécution Directe (Sans superviseur)
 Les secrets fuitent en clair sur la console et dans les logs de CI/CD :
 ```text
 ==> [INIT] Starting cluster provisioning...
@@ -588,7 +588,7 @@ Les secrets fuitent en clair sur la console et dans les logs de CI/CD :
 ==> [DONE] Provisioning completed.
 ```
 
-#### 2. Exécution Supervisée (`fd-harness run`) :
+#### B. Exécution Supervisée (`fd-harness run`)
 ```bash
 $ fd-harness run ./provision-worker.sh
 ==> [INIT] Starting cluster provisioning...
@@ -656,7 +656,7 @@ flowchart TD
     Harness -->|Sanitized and PCI-DSS Compliant Stream| Client
 ```
 
-#### 1. La Déclaration des Politiques de Sécurité (`dlp-rules.toml`)
+#### A. La Déclaration des Politiques de Sécurité (`dlp-rules.toml`)
 Nous formalisons nos politiques de conformité bancaire et RGPD dans un fichier de configuration déclaratif :
 
 ```toml
@@ -702,7 +702,7 @@ action = "mask"
 replacement = "[REDACTED_CVV]"
 ```
 
-#### 2. L'Unité de Service `systemd` Supervisée
+#### B. L'Unité de Service `systemd` Supervisée
 Dans l'unité `~/.config/systemd/user/bash-http-dlp@.service`, nous encapsulons l'exécution du worker :
 
 ```ini
@@ -721,7 +721,7 @@ StandardOutput=socket
 StandardError=journal
 ```
 
-#### 3. L'Épreuve du Réseau : Comparaison en Direct
+#### C. L'Épreuve du Réseau : Comparaison en Direct
 
 Interrogeons la route sensible `/secure` sur le port brut (:8080) puis sur le port supervisé par `fd-harness` (:8081) :
 
