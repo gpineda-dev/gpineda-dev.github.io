@@ -944,7 +944,7 @@ In our next installment (**Act II: Virtual Time & Deterministic Chaos**), we wil
 ---
 
 ### References & Repositories
-* Project Source Code: [`gpineda-dev/fd-harness`](https://github.com/gpineda-dev/fd-harness)
+* Project Source Code: [`gpineda-dev/fd-harness`](https://github.com/gpineda-dev/lab-fd-harness)
 * Lab 01 (Raw Socket Activation): [`01-systemd-socket-bash-server`](https://github.com/gpineda-dev/lab-first-principles-samples/tree/main/01-systemd-socket-bash-server)
 * Lab 02 (Zero-Fork ANSI CSI State Machine): [`02-bash-ansi-csi`](https://github.com/gpineda-dev/lab-first-principles-samples/tree/main/02-bash-ansi-csi)
 * Lab 03 (Transparent In-Band DLP on systemd.socket): [`03-systemd-socket-dlp-harness`](https://github.com/gpineda-dev/lab-first-principles-samples/tree/main/03-systemd-socket-dlp-harness)
