@@ -98,6 +98,9 @@ Que l'on soit sous Linux ou Windows, ce modèle d'I/O confère trois super-pouvo
 2. **Le Reroutage Atomique :** Remplacer instantanément la sortie standard par un pipe anonyme ou une socket en un seul appel système (`dup2(2)` sous Linux, `SetStdHandle()` sous Windows).
 3. **Le Transfert Inter-Processus :** Transférer un descripteur ouvert d'un processus A vers un processus B totalement indépendant, sans lien de parenté (`sendmsg(2)` avec `SCM_RIGHTS` sur socket Unix, ou `DuplicateHandle()` sous Windows).
 
+> [!IMPORTANT] **La Mécanique des Tampons : Le Piège Silencieux de la libc (`_IOLBF` vs `_IOFBF`)**  
+> Lorsqu'un processus écrit sur `stdout` attaché à un terminal interactif (TTY), la bibliothèque standard C (libc) active par défaut le mode **Line-Buffered (`_IOLBF`)** : chaque saut de ligne `\n` déclenche un appel système `write(2)` immédiat. En revanche, dès que `stdout` est redirigé vers un **pipe anonyme, un fichier ou un socket**, la libc bascule silencieusement en mode **Block-Buffered (`_IOFBF`)** par blocs de 4 Ko ou 8 Ko. Les octets stagnent alors dans la mémoire utilisateur du processus tant que le tampon n'est pas saturé ou vidé via `fflush(3)` (ou forcé via `stdbuf -oL`). Tout intercepteur d'I/O doit composer avec cette frontière physique.
+
 Mais avant de téléporter des descripteurs, commençons par exploiter ce que nous pouvons faire de plus direct : **intercepter et piloter en temps réel le flux qui traverse `stdout`**.
 
 ---
@@ -927,9 +930,9 @@ flowchart TD
     Membrane --> Out
 ```
 
-Si nous sommes capables d'intercepter `stdout` pour décoder des intentions à la volée et réécrire des flux en temps réel avec zéro dépendance... **que se passe-t-il lorsque le superviseur commence à manipuler l'entrée standard `stdin` et à déformer le temps perçu par l'application ?**
+Si nous sommes capables d'intercepter `stdout` pour décoder des intentions à la volée et réécrire des flux en temps réel avec zéro dépendance... **que se passe-t-il lorsque le superviseur prend le contrôle de l'entrée standard `stdin` pour cadencer l'application, éliminer les `fork()` de `sleep` et transformer le temps en un simple flux d'événements anonyme ?**
 
-Dans le prochain article (**Acte II : Le Temps Virtuel & Le Chaos Déterministe**), nous verrons comment ce même microkernel permet d'accélérer le temps d'un script de test de 10 heures en 2 secondes, d'injecter des pannes I/O et de coordonner des topologies multi-processus complexes sans jamais toucher au code source.
+Dans notre prochain volet (**Acte II : Le Temps Virtuel & Le Canal de Contrôle de `stdin`**), nous plongerons dans la physique du temps système (des premiers télétypes bloquants aux ordonnanceurs événementiels à *min-heap*), pour bâtir des métronomes déterministes et distribuer des pulsations temporelles sur le réseau sans la moindre dérive ... le tout orchestré par de simples descripteurs de fichiers.
 
 ---
 

@@ -98,6 +98,9 @@ Whether running on Linux or Windows, this I/O model grants three fundamental sup
 2. **Atomic Redirection:** Instantly swapping standard output for an anonymous pipe or socket in a single syscall (`dup2(2)` on Linux, `SetStdHandle()` on Windows).
 3. **Inter-Process Transfer:** Teleporting an open descriptor from process A to a completely unrelated process B with no parent-child relationship (`sendmsg(2)` with `SCM_RIGHTS` over a Unix domain socket, or `DuplicateHandle()` on Windows).
 
+> [!IMPORTANT] **The Buffering Mechanics: The Silent Trap of libc (`_IOLBF` vs `_IOFBF`)**  
+> When a process writes to `stdout` attached to an interactive terminal (TTY), the C standard library (libc) defaults to **Line-Buffered (`_IOLBF`)** mode: every newline `\n` triggers an immediate `write(2)` syscall. However, the moment `stdout` is redirected to an **anonymous pipe, a file, or a network socket**, libc silently switches to **Block-Buffered (`_IOFBF`)** mode in chunks of 4 KB or 8 KB. Bytes remain stagnant in the process's user-space memory until the buffer fills up or is explicitly flushed via `fflush(3)` (or forced via `stdbuf -oL`). Any I/O supervisor must account for this physical boundary.
+
 Before teleporting descriptors, however, let us explore what we can accomplish with the most immediate capability: **intercepting and controlling the data stream flowing through `stdout` in real time**.
 
 ---
@@ -937,9 +940,9 @@ flowchart TD
     Membrane --> Out
 ```
 
-If we can intercept `stdout` to decode intentions on the fly and rewrite streams in real time with zero dependencies... **what happens when the supervisor begins manipulating standard input `stdin` and warping the time perceived by the application?**
+If we can intercept `stdout` to decode intentions on the fly and rewrite streams in real time with zero dependencies... **what happens when the supervisor takes control of standard input `stdin` to pace execution, eliminate `fork()` overhead from `sleep`, and turn time into a simple stream of anonymous events?**
 
-In our next installment (**Act II: Virtual Time & Deterministic Chaos**), we will see how this same microkernel can compress a 10-hour test suite into 2 seconds of real time, inject deterministic I/O failures, and orchestrate complex multi-process topologies without touching a single line of source code.
+In our next installment (**Act II: Virtual Time & The Control Plane of `stdin`**), we will dive into the physics of system time (from early blocking TTY inputs to min-heap event schedulers), building deterministic metronomes and streaming virtual clocks across the network with zero drift—all orchestrated through simple file descriptors.
 
 ---
 
