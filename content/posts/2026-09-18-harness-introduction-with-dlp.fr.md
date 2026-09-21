@@ -13,7 +13,7 @@ mermaid: true
 
 ## 1. Du Sonar Omnidirectionnel au Métier des Systèmes
 
-Dans notre manifeste ([*Du Tableau Blanc aux Principes Premiers*](/fr/posts/2026-09-19-ai-exoskelton-for-builders-not-oracle/)), nous évoquions le **sonar omnidirectionnel de l'ingénieur augmenté** (§4) : cette capacité à plonger sans friction dans 50 ans d'histoire des systèmes d'exploitation pour en extraire les invariants théoriques et les réinjecter dans nos architectures modernes.
+Dans notre manifeste ([*L'Exosquelette de l'Artisan : L'IA comme Amplificateur Mécanique, pas comme Oracle*](/fr/posts/2026-09-19-ai-exoskelton-for-builders-not-oracle/)), nous évoquions le **sonar omnidirectionnel de l'ingénieur augmenté** (§4) : cette capacité à plonger sans friction dans 50 ans d'histoire des systèmes d'exploitation pour en extraire les invariants théoriques et les réinjecter dans nos architectures modernes.
 
 Dans notre industrie, les briques d'infrastructure sur lesquelles reposent nos systèmes ne sont pas nécessairement les plus parfaites sur le plan académique. Elles sont le fruit d'un **darwinisme technique féroce où le pragmatisme du « Pire est Mieux » (*Worse is Better*) l'a emporté** :
 
@@ -466,7 +466,7 @@ Content-Length: 118\r\n\r\n
 Lancé par Anthropic et adopté par l'écosystème IA (Claude, Antigravity, Cursor), le **Model Context Protocol (MCP)** standardise la façon dont un agent d'intelligence artificielle appelle des outils locaux (bases DuckDB, exécution bash, recherche de code).  
 Le transport par défaut recommandé de MCP ? **Les flux standards `stdio` (`stdin`/`stdout`)**. Pas de serveur web à sécuriser, pas de ports TCP à ouvrir, juste un processus Unix spawné dont les flux sont captés par le runtime de l'agent.
 
-### 3.5 La Synthèse du Bâtisseur : La Directive `# @harness`
+### 3.5 La Synthèse de l'Artisan : La Directive `# @harness`
 
 C'est ici que s'ancre la genèse de **`fd-harness`**. 
 
@@ -498,7 +498,7 @@ flowchart TD
     Dilemma -->|Option 1| O1["❌ Synthetic Data (Greenfield)<br><i>Destroys real noise and timing anomalies</i>"]
     Dilemma -->|Option 2| O2["❌ Raw Data Leak<br><i>GDPR / PCI-DSS breach, leaked secrets</i>"]
     Dilemma -->|Option 3| O3["❌ Destructive sed<br><i>f(x) = (REDACTED) : destroys relational topology</i>"]
-    Dilemma -->|Builder Pattern| Sol["✅ <b>Deterministic 1:1 Tokenization</b><br><i>Preserves causality and enables safe unmasking</i>"]
+    Dilemma -->|Approche Artisan| Sol["✅ <b>Deterministic 1:1 Tokenization</b><br><i>Preserves causality and enables safe unmasking</i>"]
 ```
 
 ### 4.2 Les 3 Échecs Classiques :
@@ -554,7 +554,7 @@ Pour comprendre la puissance du triptyque, observons la métamorphose physique d
 
 ## 5. Sous le Capot : L'Interposition Réactive avec `fd-harness`
 
-C'est ici qu'intervient **`fd-harness`**, notre prototype de microkernel de descripteurs de fichiers écrit en Python pur (100% standard library, zéro dépendance externe).
+C'est ici qu'intervient **`fd-harness`**, notre prototype de harnais d'interposition de descripteurs de fichiers écrit en Python pur (100% standard library, zéro dépendance externe).
 
 ### 5.1 L'Interposition In-Band Réactive (`fd-harness run`)
 Comment un script applicatif ou un batch shell peut-il s'auto-protéger dynamiquement sans charger de SDK ni modifier ses dépendances ? En utilisant le principe des séquences de contrôle in-band sur `stdout` !
@@ -893,7 +893,7 @@ $ sudo cat secured/vault-payments.jsonl
 {"type": "mapping_item", "properties": {"raw": "10.0.0.88", "alias": "internal_ip_02", "rule_id": "internal-ip", "created": 1789853878.215}}
 ```
 
-## 6. Épilogue & Teaser : Vers le Microkernel de Flux (Acte II)
+## 6. Épilogue & Teaser : Vers le Dialogue Bidirectionnel & les Datastructures (Acte II)
 
 Ce que nous venons d'explorer à travers le prisme du DLP ne représente que la partie émergée de l'iceberg.
 
@@ -906,12 +906,12 @@ flowchart TD
         Out["📤 stdout (Filtered and Mutated Stream)"]
     end
 
-    subgraph Kernel["⚙️ fd-harness Microkernel"]
+    subgraph Kernel["⚙️ fd-harness Core (Membrane & Routeur)"]
         direction TB
         Membrane["<b>Stream Interposition Membrane and Router</b>"]
         C1["🛡️ DlpCoprocessor (Sanitization and BiMap Vault)"]
-        C2["⏳ TimerCoprocessor (Virtual Clocks)"]
-        C3["🔀 HeapScheduler (Deterministic Chaos and Simulation)"]
+        C2["📦 DatastructureCoprocessor (In-Memory Deques, Queues & Sets)"]
+        C3["⏳ TimerCoprocessor (Virtual Clocks & Schedulers)"]
         Membrane --- C1
         Membrane --- C2
         Membrane --- C3
@@ -930,9 +930,9 @@ flowchart TD
     Membrane --> Out
 ```
 
-Si nous sommes capables d'intercepter `stdout` pour décoder des intentions à la volée et réécrire des flux en temps réel avec zéro dépendance... **que se passe-t-il lorsque le superviseur prend le contrôle de l'entrée standard `stdin` pour cadencer l'application, éliminer les `fork()` de `sleep` et transformer le temps en un simple flux d'événements anonyme ?**
+Si nous sommes capables d'intercepter `stdout` pour décoder des intentions à la volée et réécrire des flux en temps réel avec zéro dépendance... **que se passe-t-il lorsque le superviseur utilise l'entrée standard `stdin` comme canal de retour synchrone pour injecter des structures de données en mémoire ($O(1)$) directement au cœur d'un simple script shell ?**
 
-Dans notre prochain volet (**Acte II : Le Temps Virtuel & Le Canal de Contrôle de `stdin`**), nous plongerons dans la physique du temps système (des premiers télétypes bloquants aux ordonnanceurs événementiels à *min-heap*), pour bâtir des métronomes déterministes et distribuer des pulsations temporelles sur le réseau sans la moindre dérive ... le tout orchestré par de simples descripteurs de fichiers.
+Dans notre prochain volet (**Acte II : Le Dialogue Bidirectionnel & le Coprocesseur de Datastructures**), nous explorerons comment doter n'importe quel script élémentaire ou binaire minimaliste de files circulaires (*ring buffers*), de piles, de files prioritaires (*min-heaps*) et d'états partagés sans jamais déployer de base externe, sans écrire de fichiers temporaires dans `/tmp`, et sans spawner de sous-processus `jq`... le tout orchestré à la vitesse de la RAM par de simples descripteurs de fichiers.
 
 ---
 

@@ -13,7 +13,7 @@ mermaid: true
 
 ## 1. From the Omnidirectional Sonar to Systems Craft
 
-In our manifesto ([*From the Whiteboard to First Principles*](/posts/2026-09-19-ai-exoskelton-for-builders-not-oracle/)), we introduced the **augmented engineer's omnidirectional sonar** (§4): the ability to dive frictionlessly across fifty years of operating systems history, extract deep theoretical invariants, and reinject them directly into modern architectures.
+In our manifesto ([*The Craftsman's Exoskeleton: AI as a Mechanical Amplifier, Not an Oracle*](/posts/2026-09-19-ai-exoskelton-for-builders-not-oracle/)), we introduced the **augmented engineer's omnidirectional sonar** (§4): the ability to dive frictionlessly across fifty years of operating systems history, extract deep theoretical invariants, and reinject them directly into modern architectures.
 
 In our industry, the foundational primitives upon which our entire software stack rests are not necessarily the most academically immaculate. They are the battle-hardened survivors of a **ferocious technical Darwinism where the pragmatism of *Worse is Better* prevailed**:
 
@@ -473,7 +473,7 @@ The primary, recommended transport for MCP? **Standard `stdio` streams (`stdin`/
 
 ---
 
-### 3.5 The Builder's Synthesis: The `# @harness` Directive
+### 3.5 The Craftsman's Synthesis: The `# @harness` Directive
 
 This is where **`fd-harness`** was born.
 
@@ -505,7 +505,7 @@ flowchart TD
     Dilemma -->|Option 1| O1["❌ Synthetic Data (Greenfield)<br><i>Destroys real noise and timing anomalies</i>"]
     Dilemma -->|Option 2| O2["❌ Raw Data Leak<br><i>GDPR / PCI-DSS breach, leaked secrets</i>"]
     Dilemma -->|Option 3| O3["❌ Destructive sed<br><i>f(x) = (REDACTED) : destroys relational topology</i>"]
-    Dilemma -->|Builder Pattern| Sol["✅ <b>Deterministic 1:1 Tokenization</b><br><i>Preserves causality and enables safe unmasking</i>"]
+    Dilemma -->|Craftsman Approach| Sol["✅ <b>Deterministic 1:1 Tokenization</b><br><i>Preserves causality and enables safe unmasking</i>"]
 ```
 
 ### 4.2 The 3 Classic Failures:
@@ -520,7 +520,7 @@ flowchart TD
 
 ### 4.3 Fundamental Aside: Pseudonymization $\neq$ Anonymization (The State of the Art)
 
-In strict regulatory environments (**GDPR** in Europe and **PCI-DSS Requirement 3** in the financial industry), widespread confusion persists between **Anonymization** and **Pseudonymization**:
+In strict regulatory environments (**GDPR** in Europe and **PCI-DSS Requirement 3** in the financial industry), widespread confusion persists between **Anonymisation** and **Pseudonymisation** :
 
 * **Anonymization (Irreversible Destruction):** A one-way operation that permanently eliminates any link between the data and the individual. Mandatory for absolute secrets (CVV security codes, passwords, private keys). However, it breaks all relational debugging capability.
 * **Pseudonymization (Reversible 1:1 Tokenization):** Replaces sensitive identifiers with synthetic aliases while securing the translation keys in a restricted vault. **The relational link $A \leftrightarrow B$ remains intact for the investigator**, but the underlying sensitive data is shielded.
@@ -563,7 +563,7 @@ To illustrate the practical power of this triptyque, observe the physical transf
 
 ## 5. Under the Hood: Reactive Interposition with `fd-harness`
 
-This is where **`fd-harness`** comes in: our lightweight file descriptor microkernel prototype written in pure Python (100% standard library, zero external dependencies).
+This is where **`fd-harness`** comes in: our lightweight file descriptor interposition harness prototype written in pure Python (100% standard library, zero external dependencies).
 
 ### 5.1 Reactive In-Band Interposition (`fd-harness run`)
 How can an application script or batch job self-protect dynamically without loading proprietary SDKs or modifying build dependencies? By leveraging in-band control sequences on `stdout`!
@@ -903,7 +903,7 @@ $ sudo cat secured/vault-payments.jsonl
 
 ---
 
-## 6. Epilogue & Teaser: Towards the Stream Microkernel (Act II)
+## 6. Epilogue & Teaser: Towards Bidirectional Dialogue & Datastructures (Act II)
 
 What we have explored through DLP is merely the tip of the iceberg.
 
@@ -916,12 +916,12 @@ flowchart TD
         Out["📤 stdout (Filtered and Mutated Stream)"]
     end
 
-    subgraph Kernel["⚙️ fd-harness Microkernel"]
+    subgraph Kernel["⚙️ fd-harness Core (Membrane & Router)"]
         direction TB
         Membrane["<b>Stream Interposition Membrane and Router</b>"]
         C1["🛡️ DlpCoprocessor (Sanitization and BiMap Vault)"]
-        C2["⏳ TimerCoprocessor (Virtual Clocks)"]
-        C3["🔀 HeapScheduler (Deterministic Chaos and Simulation)"]
+        C2["📦 DatastructureCoprocessor (In-Memory Deques, Queues & Sets)"]
+        C3["⏳ TimerCoprocessor (Virtual Clocks & Schedulers)"]
         Membrane --- C1
         Membrane --- C2
         Membrane --- C3
@@ -940,9 +940,9 @@ flowchart TD
     Membrane --> Out
 ```
 
-If we can intercept `stdout` to decode intentions on the fly and rewrite streams in real time with zero dependencies... **what happens when the supervisor takes control of standard input `stdin` to pace execution, eliminate `fork()` overhead from `sleep`, and turn time into a simple stream of anonymous events?**
+If we can intercept `stdout` to decode intentions on the fly and rewrite streams in real time with zero dependencies... **what happens when the supervisor uses standard input `stdin` as a synchronous return channel to inject in-memory data structures ($O(1)$) directly into the heart of a simple shell script?**
 
-In our next installment (**Act II: Virtual Time & The Control Plane of `stdin`**), we will dive into the physics of system time (from early blocking TTY inputs to min-heap event schedulers), building deterministic metronomes and streaming virtual clocks across the network with zero drift—all orchestrated through simple file descriptors.
+In our next installment (**Act II: Bidirectional Dialogue & The Datastructure Coprocessor**), we will explore how to empower any primitive script or minimal binary with circular ring buffers (`deque`), stacks, priority queues (`min-heaps`), and shared state without deploying external databases, without polluting `/tmp` with temporary files, and without spawning `jq` subprocesses—all orchestrated at the speed of RAM through simple file descriptors.
 
 ---
 
