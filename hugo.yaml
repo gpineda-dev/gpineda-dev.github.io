@@ -49,8 +49,8 @@ languages:
     params:
       description: "Bringing Cloud-Grade Quality (CI/CD, Audit, Observability) to Industrial Legacy"
       homeInfoParams:
-        Title: "Guillaume Pineda (@gpineda-dev)"
-        Content: "**SRE & Platform Engineer • Founder of Ouvrage Systems**\n\n*“A bridge between two worlds: inheriting the wisdom of senior engineers to bring Cloud-grade quality—deterministic build pipelines, CI/CD, auditability, and observability—to industrial legacy.”*\n\nSystems engineer based in Konstanz (Siemens cRSP), designing deterministic, lightweight tooling to modernize legacy builds, extract structured metrics (OMD/Nagios, custom ELK), and guarantee critical infrastructure resilience. Welcome to my engineering journal."
+        Title: "Guillaume Pineda"
+        Content: "**SRE & Platform Engineer • Founder of Ouvrage Systems**\n\n*“A bridge between two worlds: inheriting the wisdom of senior engineers to bring Cloud-grade quality deterministic build pipelines, CI/CD, auditability, and observability to industrial legacy.”*\n\nSystems engineer based in Konstanz (Siemens cRSP), designing deterministic, lightweight tooling to modernize legacy builds, extract structured metrics (OMD/Nagios, custom ELK), and guarantee critical infrastructure resilience. Welcome to my engineering journal."
     menu:
       main:
         - name: "Posts"
