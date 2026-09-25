@@ -37,6 +37,9 @@ params:
       url: "https://github.com/gpineda-dev"
     - name: "LinkedIn"
       url: "https://www.linkedin.com/in/guillaume-pineda/"
+    - name: "RSS"
+      url: "posts/index.xml"
+
 
 languages:
   en:
